@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="App1.UWP.Views.MyItemsDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="upperGrid">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="86*"/>
+            </Grid.RowDefinitions>
+            <Border  Grid.Row="0" Background="#0078d7" />
+            <TextBlock x:Name="txtTitle"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   FontSize="36"
+                   Foreground="White"/>
+            <TextBox 
+                Grid.Row="1"
+                x:Name="txtText"
+                Margin="5,5,0,0"
+                FontSize="20"/>
+            <TextBox
+                Grid.Row="2"
+                x:Name="txtDesc"
+                Margin="5,5,0,0"
+                FontSize="20"/>
+        </Grid>
+        <Grid x:Name="lowerGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="84*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition Width="83*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    x:Name="txtQuantityLabel"
+                    Text="Quantity: "
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="20"/>
+                <TextBlock
+                    Grid.Column="1"
+                    x:Name="txtQuantity"
+                    Text="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="20"/>
+                <Button
+                    Grid.Column="2"
+                    x:Name="btnAdd"
+                    Click="btnAdd_Click"
+                    Content="+"
+                    FontSize="24"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+                <Button
+                    Grid.Column="3"
+                    x:Name="btnSub"
+                    Click="btnSub_Click"
+                    Margin="2,0,2,0"
+                    Content="-"
+                    FontSize="24"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button 
+                    x:Name="btnAddItem" 
+                    Content="Save Item"
+                    FontSize="24"
+                    Click="btnAddItem_Click"
+                    Foreground="White"
+                    Background="#0078d7"
+                    HorizontalAlignment="Stretch" 
+                    Padding="50,0,50,0"
+                    Margin="20,0,20,5"
+                    VerticalAlignment="Stretch"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</Page>

@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="App1.UWP.Views.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="using:App1.ViewModel"
+    xmlns:local="using:App1.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="MainGrid">
+        <Grid.Resources>
+            <local:LoginCommand x:Key="lcm"/>
+        </Grid.Resources>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Margin" Value="0"/>
+                        <Setter Target="TitleGrid.Margin" Value="0 0 0 6"/>
+                        <Setter Target="SecondGrid.Margin" Value="0 6 0 0"/>
+                        <Setter Target="MainGrid.RowDefinitions[1].Height" Value="7*"/>
+                        <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
+                        <Setter Target="SecondGrid.(Grid.Column)" Value="0"/>
+                        <Setter Target="SecondGrid.(Grid.Row)" Value="1"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Margin" Value="0"/>
+                        <Setter Target="TitleGrid.Margin" Value="0 0 0 6"/>
+                        <Setter Target="SecondGrid.Margin" Value="0 6 0 0"/>
+                        <Setter Target="MainGrid.RowDefinitions[1].Height" Value="7*"/>
+                        <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
+                        <Setter Target="SecondGrid.(Grid.Column)" Value="0"/>
+                        <Setter Target="SecondGrid.(Grid.Row)" Value="1"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="signInButton" 
+                Content="Sign In" 
+                HorizontalAlignment="Left" 
+                Margin="529,336,0,0"    
+                VerticalAlignment="Top"
+                Command="{StaticResource lcm}"/>
+        <Grid x:Name="TitleGrid" Grid.Column="0" Grid.Row="0" Background="#0078d7">
+            <TextBlock x:Name="textBlockTitle" Text="AppName" FontSize="36" VerticalAlignment="Center" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="SecondGrid" Grid.Column="1"  Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="45*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush Stretch="None" ImageSource="/Assets/profile_generic.png" AlignmentY="Top" AlignmentX="Center" />
+            </Grid.Background>
+            <Button x:Name="btnSignIn"
+                    HorizontalAlignment="right"
+                    Content="Sign In"
+                    Grid.Column="0"
+                    Command="{StaticResource lcm}"/>
+            <Button x:Name="btnNotNow"
+                    Content="Not Now"
+                    Click="btnNotNow_Click"
+                    HorizontalAlignment="Left"
+                    Grid.Column="2"/>
+        </Grid>
+    </Grid>
+</Page>
